@@ -581,7 +581,7 @@ int HeatPump::readPacket() {
             packet[i] = header[i];
           }
           for(int i=0; i<(dataLength+1); i++) { //must be dataLength+1 to pick up checksum byte
-            packet[(i+5)] = data[i];
+            packet[(i+INFOHEADER_LEN)] = data[i];
           }
           packetCallback(packet, PACKET_LEN, (char*)"packetRecv");
         }
